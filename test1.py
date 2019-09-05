@@ -18,9 +18,9 @@ import pygame #Biblioteca para reproduzir sons
 import os
 
 '''EXTRAÇÃO DO CONTEÚDO DO PDF'''
-pdfFileObj = open('/home/joao/PycharmProjects/test/venv/artigo.pdf', 'rb')
+pdfFileObj = open(INSIRA O PATH ABSOLUTO DO ARQUIVO PDF QUE VOCÊ DESEJA LER, 'rb')
 pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
-pages = 1 #int(pdfReader.numPages)
+pages = int(pdfReader.numPages)
 i = 0
 texto = ''
 
@@ -40,7 +40,7 @@ for i in range(0, pages):
     backup.write(texto)
 
     '''LEITURA EM ÁUDIO'''
-    tts = gTTS(texto[382:832], 'pt')
+    tts = gTTS(texto, 'pt')
     tts.save('texto.mp3')
 
     '''REPRODUZIR A MÚSICA'''
